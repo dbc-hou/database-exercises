@@ -20,7 +20,7 @@ right join roles on users.role_id = roles.id;
 -- table as an associative table
 -- i.e., employees join departments via dept_emp
 select d.dept_name as 'Department Name',
-    concat(e.first_name,' ',e.last_name) as 'Department Manager',
+    concat(e.first_name,' ',e.last_name) as 'Department Manager'
 from employees as e
     join dept_manager as dm on dm.emp_no = e.emp_no
     join departments as d on d.dept_no = dm.dept_no
