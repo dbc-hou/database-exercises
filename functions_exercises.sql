@@ -27,7 +27,7 @@ from employees
 where month(birth_date) = 12 and day(birth_date) = 25 and year(hire_date) between 1990 and 1999
 order by hire_date desc, birth_date asc;
 
-select *, DATEDIFF(now(), hire_date)/365.25 as years_with_company
+select *, datediff(now(), hire_date)/365.25 as years_with_company
 from employees
 where month(birth_date) = 12 and day(birth_date) = 25 and year(hire_date) between 1990 and 1999
 order by hire_date desc, birth_date asc;
