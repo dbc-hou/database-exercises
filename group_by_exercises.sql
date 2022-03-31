@@ -2,7 +2,7 @@ use david;
 
 select distinct title from titles;
 
-select last_name from employees
+select last_name, first_name from employees
 where last_name like 'E%' and last_name like '%E'
 group by last_name, first_name;
 
