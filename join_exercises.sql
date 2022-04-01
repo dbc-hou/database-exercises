@@ -24,7 +24,7 @@ select d.dept_name as 'Department Name',
 from employees as e
     join dept_manager as dm on dm.emp_no = e.emp_no
     join departments as d on d.dept_no = dm.dept_no
-where dm.to_date = '9999-01-01'
+where dm.to_date > now()
     and e.gender = 'F'
 order by 'Department Name';
 
@@ -38,14 +38,14 @@ from titles as t
     join dept_emp as de on e.emp_no = de.emp_no
     join departments as d on d.dept_no = de.dept_no
 where d.dept_name = 'Customer Service'
-    and t.to_date = '9999-01-01'
-    and de.to_date = '9999-01-01'
+    and t.to_date > now()
+    and de.to_date > now()
 group by Title
 order by Total desc;
 
 # find the current salary of all current managers
 # (meaning that the to_date fields in both the salary
-# and dept_manager tables must both be 9999-01-01)
+# and dept_manager tables must both later than now)
 # this involves four tables!
 # employees join salaries, employees join departments via dept_manager.
 select d.dept_name as 'Department Name',
@@ -55,6 +55,9 @@ from employees as e
     join salaries as s on e.emp_no = s.emp_no
     join dept_manager as dm on dm.emp_no = e.emp_no
     join departments as d on d.dept_no = dm.dept_no
-where dm.to_date = '9999-01-01'
-    and s.to_date = '9999-01-01'
+where dm.to_date > now()
+    and s.to_date > now()
 order by 'Department Name';
+
+# BONUS: Employees full names and their department managers'
+# full names

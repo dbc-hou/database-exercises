@@ -23,7 +23,8 @@ create table ads
     title varchar (50),
     description text,
     primary key (id),
-    foreign key (category_id, user_id)
+    foreign key (category_id) references categories(id)
+    foreign key (user_id) references users(id)
 );
 
 create table categories
