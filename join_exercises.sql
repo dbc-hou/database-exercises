@@ -61,3 +61,14 @@ order by 'Department Name';
 
 # BONUS: Employees full names and their department managers'
 # full names
+select concat(e.first_name, ' ', e.last_name) as 'Employee Name',
+       d.dept_name as 'Department Name',
+       concat(e2.first_name, ' ', e2.last_name) as 'Manager Name'
+from employees as e
+join dept_emp de on e.emp_no = de.emp_no
+join departments d on de.dept_no = d.dept_no
+join dept_manager dm on d.dept_no = dm.dept_no
+join employees as e2 on e2.emp_no = dm.emp_no
+where dm.to_date > now()
+and de.to_date > now()
+order by d.dept_name;
