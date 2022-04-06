@@ -1,7 +1,7 @@
 use david;
 
 -- find all the employees hired the same day as 101010 (Demos Christ)
-select * from employees
+select first_name, last_name from employees
 where hire_date = (
     select hire_date from employees
     where emp_no = 101010
